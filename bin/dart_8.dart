@@ -24,7 +24,7 @@ void main() async {
 
   print(fn1(1, 2));
   print(fn1('hello', 'world'));
-  print(fn1(1, 'world'));
+  // print(fn1(1, 'world'));
 
   var e = await getData();
   print(e);
@@ -32,7 +32,7 @@ void main() async {
 
 // 异步方法，一定返回一个Future对象，但是如果不设置返回类型，编译器也会识别成 Dynamic
 Future<String> getData() async {
-  sleep(Duration(seconds: 2));
+  sleep(Duration(seconds: 10));
   return 'hello world';
 }
 
