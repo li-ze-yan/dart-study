@@ -1,0 +1,65 @@
+{
+	"typescript.tsdk": "./node_modules/typescript/lib", // 指定 TypeScript SDK 的路径
+	// "gitlens.currentLine.enabled": false, // 禁用 GitLens 的当前行信息
+	"editor.formatOnSave": true, // 启用保存时自动格式化
+	"editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认格式化工具为 Prettier
+	"prettier.prettierPath": "./node_modules/prettier/index.cjs", // 指定 Prettier 的路径
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit", // 保存时自动修复所有 ESLint 问题
+		"source.fixAll.stylelint": "explicit", // 保存时自动修复所有 Stylelint 问题
+		"source.addMissingImports": "explicit", // 保存时自动添加缺失的导入
+		"source.organizeImports": "explicit" // 保存时自动组织导入
+	},
+	"workbench.colorTheme": "Bearded Theme Monokai Stone", // 设置工作区主题为 Bearded Theme Arc Blueberry
+	"editor.suggestSelection": "recentlyUsedByPrefix", // 基于最近的前缀选择建议
+	"editor.cursorBlinking": "smooth", // 设置光标闪烁为平滑模式
+	"editor.cursorSmoothCaretAnimation": "on", // 启用光标平滑动画
+	"workbench.startupEditor": "newUntitledFile", // 启动时打开一个新的未命名文件
+	"workbench.editor.enablePreview": false, // 禁用编辑器预览模式
+	"workbench.iconTheme": "material-icon-theme", // 开启 material-icon-theme
+	"material-icon-theme.activeIconPack": "react", // 设置 Material Icon 主题的图标包为 React
+	"files.eol": "\n", // 设置文件的行尾符为换行符（LF）
+	"explorer.compactFolders": false, // 禁用资源管理器中的紧凑文件夹视图
+	"explorer.confirmDelete": false, // 禁用删除文件时的确认对话框
+	"javascript.inlayHints.parameterNames.enabled": "all", // 启用 JavaScript 参数名称的内联提示
+	"typescript.inlayHints.parameterNames.enabled": "all", // 启用 TypeScript 参数名称的内联提示
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"], // 设置 ESLint 验证的文件类型
+	"eslint.workingDirectories": [{ "mode": "auto" }], // 自动检测 ESLint 工作目录
+	"editor.stickyScroll.enabled": true, // 启用代码粘性滚动
+	"workbench.tree.enableStickyScroll": true, // 启用资源管理器粘性滚动
+	"files.associations": {
+		"*.css": "tailwindcss" // 将 .css 文件关联为 Tailwind CSS
+	},
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"stylelint.validate": ["css", "less", "sass", "scss"],
+	"editor.quickSuggestions": {
+		"strings": true // 启用字符串的快速建议
+	},
+	"tailwindCSS.includeLanguages": {
+		"plaintext": "html" // 将纯文本文件视为 HTML 以启用 Tailwind CSS 支持
+	},
+	"search.exclude": {
+		"**/node_modules": true, // 排除 node_modules 目录
+		"**/dist": true, // 排除 dist 目录
+		"**/build": true, // 排除 build 目录
+		"**/yarn.lock": true, // 排除 yarn.lock 文件
+		"**/package-lock.json": true, // 排除 package-lock.json 文件
+		"**/pnpm-lock.yaml": true, // 排除 pnpm-lock.yaml 文件
+		"**/readme.md": true, // 排除 readme.md 文件
+		"pnpm-workspace.yaml": true // 排除 pnpm-workspace.yaml 文件
+	},
+	"todohighlight.keywords": [
+		{
+			"text": "TODO",
+			"color": "yellow",
+			"backgroundColor": "transparent"
+		},
+		{
+			"text": "todo",
+			"color": "yellow",
+			"backgroundColor": "transparent"
+		}
+	]
+}

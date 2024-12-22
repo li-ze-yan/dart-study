@@ -1,0 +1,51 @@
+{
+	"recommendations": [
+		"bradlc.vscode-tailwindcss", // Tailwind CSS 支持
+		"brandonfowler.exe-runner", // 运行可执行文件
+		"christian-kohler.path-intellisense", // 路径智能感知
+		"codezombiech.gitignore", // .gitignore 文件支持
+		"csstools.postcss", // PostCSS 支持
+		"dbaeumer.vscode-eslint", // ESLint 支持
+		"eamodio.gitlens", // GitLens - Git 超级充电器
+		"EditorConfig.EditorConfig", // EditorConfig 支持
+		"esbenp.prettier-vscode", // Prettier - 代码格式化
+		"formulahendry.auto-close-tag", // 自动关闭标签
+		"formulahendry.auto-complete-tag", // 自动补全标签
+		"formulahendry.auto-rename-tag", // 自动重命名标签
+		"k--kato.intellij-idea-keybindings", // IntelliJ IDEA 快捷键绑定
+		"mikestead.dotenv", // .env 文件支持
+		"ms-python.isort", // Python 导入排序
+		"ms-python.python", // Python 支持
+		"ms-python.vscode-pylance", // Pylance - Python 语言服务器
+		"pflannery.vscode-versionlens", // 版本镜头 - 查看依赖版本
+		"pranaygp.vscode-css-peek", // CSS Peek - 查看 CSS 定义
+		"ritwickdey.LiveServer", // Live Server - 实时服务器
+		"sissel.shopify-liquid", // Shopify Liquid 模板支持
+		"stylelint.vscode-stylelint", // Stylelint 支持
+		"tomoki1207.pdf", // PDF 预览
+		"vscode-icons-team.vscode-icons", // VSCode 图标主题
+		"wayou.vscode-todo-highlight", // TODO 高亮
+		"wix.vscode-import-cost", // 导入成本 - 显示导入包的大小
+		"yzhang.markdown-all-in-one", // Markdown 一体化支持
+		"pkief.material-icon-theme", // Material 图标主题
+		"simonsiefke.svg-preview", // SVG 预览
+		"styled-components.vscode-styled-components", // styled-components 支持
+		"postman.postman-for-vscode", // Postman - API 测试
+		"pnp.polacode", // Polacode - 代码截图
+		"prisma.prisma", // Prisma
+		"beardedbear.beardedtheme", // Bearded Theme - 暗黑主题
+		"natizyskunk.sftp", // SFTP 支持
+		"ms-vscode-remote.remote-ssh", // SSH Remote - SSH 连接
+		"Vue.volar", // Volar - Vue 3 支持
+		"hollowtree.vue-snippets", // Vue Snippets - Vue 3 片段
+		"formulahendry.code-runner", // 代码运行
+		"dart-code.flutter", // Flutter 支持
+		"alexisvt.flutter-snippets", // Flutter 片段
+		"circlecodesolution.ccs-flutter-color", // Flutter 颜色
+		"kisstkondoros.vscode-gutter-preview", // VSCode 边栏预览
+		"redhat.vscode-yaml", // YAML 支持
+		"rangav.vscode-thunder-client",
+		"hirantha.json-to-dart" // Thunder Client - HTTP 请求调试
+	],
+	"unwantedRecommendations": [] // 不需要的推荐扩展
+}
