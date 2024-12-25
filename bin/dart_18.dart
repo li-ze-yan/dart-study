@@ -17,4 +17,9 @@ void main() {
   } else if (value is int) {
     print('int');
   }
+
+  dynamic e = 'hello';
+  print(e is String);
+  String str2 = e as String;
+  print(str2);
 }
