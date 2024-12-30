@@ -5,6 +5,8 @@ import './outer/inner/cat.dart';
 import './outer/student.dart';
 
 void main() {
+  // 静态变量只能被静态方法调用
+  // 私有变量只能在当前类中调用
   Student student = Student();
   student.show();
 
