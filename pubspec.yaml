@@ -1,4 +1,4 @@
-name: dart_1
+name: tankx_dart
 description: A sample command-line application.
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
@@ -7,8 +7,9 @@ environment:
   sdk: ^3.6.0
 
 # Add regular dependencies here.
+# flutter pub get
 dependencies:
-  # path: ^1.8.0
+  time: ^2.1.5
 
 dev_dependencies:
   lints: ^5.0.0
