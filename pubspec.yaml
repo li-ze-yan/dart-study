@@ -10,6 +10,8 @@ environment:
 # flutter pub get
 dependencies:
   time: ^2.1.5
+  # dart pub add json
+  json: ^0.20.4
 
 dev_dependencies:
   lints: ^5.0.0
