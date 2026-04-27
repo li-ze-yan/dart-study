@@ -30,7 +30,6 @@
 		"pkief.material-icon-theme", // Material 图标主题
 		"simonsiefke.svg-preview", // SVG 预览
 		"styled-components.vscode-styled-components", // styled-components 支持
-		"postman.postman-for-vscode", // Postman - API 测试
 		"pnp.polacode", // Polacode - 代码截图
 		"prisma.prisma", // Prisma
 		"beardedbear.beardedtheme", // Bearded Theme - 暗黑主题
@@ -44,8 +43,7 @@
 		"circlecodesolution.ccs-flutter-color", // Flutter 颜色
 		"kisstkondoros.vscode-gutter-preview", // VSCode 边栏预览
 		"redhat.vscode-yaml", // YAML 支持
-		"rangav.vscode-thunder-client",
-		"hirantha.json-to-dart" // Thunder Client - HTTP 请求调试
+		"hirantha.json-to-dart" // JSON 转 Dart
 	],
 	"unwantedRecommendations": [] // 不需要的推荐扩展
 }

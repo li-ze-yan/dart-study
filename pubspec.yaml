@@ -11,7 +11,7 @@ environment:
 dependencies:
   time: ^2.1.5
   # dart pub add json
-  json: ^0.20.4
+  # json: ^0.20.4  # 依赖已废弃的 macros 实验特性，SDK 不再提供 _macros，移除以恢复依赖解析
 
 dev_dependencies:
   lints: ^5.0.0
