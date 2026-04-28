@@ -8,6 +8,11 @@
 // void main() {}
 
 // 有参数，接收命令行参数
-void main(List<String> args) {
+// void main(List<String> args) {
+//   print(args);
+// }
+
+// 异步入口
+Future<void> main(List<String> args) async {
   print(args);
 }

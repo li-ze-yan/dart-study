@@ -1334,15 +1334,19 @@ void main() {
 
 Dart 3.0 引入了 **class modifiers**，给类的能力更精细的控制。这是 TS 完全没有的。
 
-| 修饰符        | 能 `extend`？ | 能 `implement`？ | 能在外部库 `extend` / `implement`？ |
-| ------------- | ------------- | ---------------- | ----------------------------------- |
-| 默认 `class`  | ✅            | ✅               | ✅                                  |
-| `abstract`    | ✅（不能实例化） | ✅             | ✅                                  |
-| `base`        | ✅            | ❌               | 同库 `extend`，跨库不行             |
-| `interface`   | ❌            | ✅               | 仅 implement                        |
-| `final`       | ❌            | ❌               | 同库可继承 / 实现，跨库都不行       |
-| `sealed`      | 同库才能继承  | 同库             | 跨库都不行（用于穷举模式匹配）      |
-| `mixin class` | ✅            | ✅               | 还能作为 mixin 用                   |
+| 修饰符        | 同库 `extend` | 同库 `implement` | 跨库 `extend`                   | 跨库 `implement` | 备注                       |
+| ------------- | ------------- | ---------------- | ------------------------------- | ---------------- | -------------------------- |
+| 默认 `class`  | ✅            | ✅               | ✅                              | ✅               |                            |
+| `abstract`    | ✅            | ✅               | ✅                              | ✅               | 不能实例化                 |
+| `base`        | ✅①           | ✅①              | ✅①                             | ❌               | 强制继承实现，禁止外部实现 |
+| `interface`   | ✅            | ✅               | ❌                              | ✅               | 跨库只能 implement         |
+| `final`       | ✅①           | ✅①              | ❌                              | ❌               | 跨库完全封闭               |
+| `sealed`      | ✅②           | ✅②              | ❌                              | ❌               | 隐式 abstract，用于穷举    |
+| `mixin class` | ✅            | ✅               | ✅                              | ✅               | 还能作为 mixin 用          |
+
+> **① 传染规则**：`base` / `final` / `sealed` 的子类也必须带 `base`、`final` 或 `sealed`，即便在同库内。修饰符在继承链上只能越来越严格，不能"解锁"回普通 `class`。
+>
+> **② `sealed` 额外约束**：子类必须在**同一个文件**（比同库更严格），不能跨文件。
 
 ### 11.1 `final class`：彻底封闭
 
@@ -1357,7 +1361,24 @@ final class Money {
 
 适合：值对象（Value Object）、内部工具类。
 
-### 11.2 `interface class`：只能被实现，不能被继承
+### 11.2 `base class`：强制继承实现，禁止外部 implements
+
+```dart
+base class HttpClient {
+  void _log(String msg) { ... }  // 内部实现逻辑
+  void send(String body) { ... }
+}
+
+// 使用方：
+class MyClient extends HttpClient { ... }     // ✅ 继承基础能力
+class MyClient implements HttpClient { ... }  // ❌ 禁止绕过核心实现
+```
+
+**为什么用**：你想让使用者继承你的实现（`extends`），继承链能保留 `super` 调用和内部逻辑；但不想让他们重写一套（`implements`），那样所有逻辑都会被绕过。
+
+适合：框架基类（Widget、Controller）、有内部不变量需要保护的类。
+
+### 11.3 `interface class`：只能被实现，不能被继承
 
 ```dart
 interface class Printer {
@@ -1369,7 +1390,7 @@ interface class Printer {
 // class A implements Printer {}   // ✅
 ```
 
-### 11.3 `sealed class`：闭合的子类集合（穷举模式匹配的关键）
+### 11.4 `sealed class`：闭合的子类集合（穷举模式匹配的关键）
 
 ```dart
 sealed class Shape {}
@@ -1393,7 +1414,7 @@ double area(Shape s) => switch (s) {
 
 > 🌟 这是 Dart 3.0 最香的特性之一：编译器**强制穷举**，新增子类时所有 switch 立刻报错。
 
-### 11.4 完整场景：API 响应建模
+### 11.5 完整场景：API 响应建模
 
 ```dart
 // 用 sealed 表示"响应只可能是这三种之一"
@@ -1432,6 +1453,17 @@ void main() {
   print(render(const Failure<int>('网络错误', code: 500)));
 }
 ```
+
+### 11.6 `base` / `final` / `sealed` 使用场景对比
+
+| 修饰符 | 一句话 | 典型场景 |
+|--------|--------|---------|
+| `base` | 继承我的实现，别另起炉灶 | 框架基类、有内部不变量需保护的类 |
+| `final` | 我就长这样，别来沾边 | 值对象（Money、Email）、工具类 |
+| `sealed` | 所有可能情况都在我这，编译器帮我查漏 | 状态机、网络结果、AST 节点 |
+
+> 三者的共同点：跨库都**禁止 `implements`**，防止外部绕过你的实现。
+> 三者的区别：对跨库 `extends` 的封锁程度不同 — `base` 开放、`final` 禁止、`sealed` 禁止且限定子类同文件。
 
 ---
 

@@ -1,7 +1,7 @@
 {
-  "typescript.tsdk": "./node_modules/typescript/lib", // 指定 TypeScript SDK 的路径
   // "gitlens.currentLine.enabled": false, // 禁用 GitLens 的当前行信息
   "editor.formatOnSave": true, // 启用保存时自动格式化
+  "editor.formatOnType": true, // 启用输入时自动格式化（输入分号、回车等触发字符时格式化）
   "editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认格式化工具为 Prettier
   "prettier.prettierPath": "./node_modules/prettier/index.cjs", // 指定 Prettier 的路径
   "editor.codeActionsOnSave": {
@@ -21,8 +21,6 @@
   "files.eol": "\n", // 设置文件的行尾符为换行符（LF）
   "explorer.compactFolders": false, // 禁用资源管理器中的紧凑文件夹视图
   "explorer.confirmDelete": false, // 禁用删除文件时的确认对话框
-  "javascript.inlayHints.parameterNames.enabled": "all", // 启用 JavaScript 参数名称的内联提示
-  "typescript.inlayHints.parameterNames.enabled": "all", // 启用 TypeScript 参数名称的内联提示
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -68,5 +66,16 @@
     }
   ],
   "liveServer.settings.port": 5501,
-  "postman.settings.dotenv-detection-notification-visibility": false
+  "postman.settings.dotenv-detection-notification-visibility": false,
+
+  // ==================== Dart / Flutter 专属配置 ====================
+  "[dart]": {
+    "editor.formatOnSave": true, // 保存时自动格式化（dart format）
+    "editor.formatOnType": true, // 输入时自动格式化（输入分号会自动整理代码、补 trailing comma）
+    "editor.rulers": [80], // 在第 80 列显示参考线（Dart 官方推荐行宽）
+    "editor.selectionHighlight": false, // 禁用选中相同内容的高亮（避免与 Dart 插件冲突）
+    "editor.suggestSelection": "first", // 默认选中建议列表的第一项
+    "editor.tabCompletion": "onlySnippets", // Tab 键仅用于补全代码片段，避免误触发
+    "editor.wordBasedSuggestions": "off" // 关闭基于单词的建议，使用 Dart 语义化建议更精准
+  }
 }
